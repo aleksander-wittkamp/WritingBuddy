@@ -1,3 +1,4 @@
+from WritingBuddy.TextManager import TextManager
 from tkinter import *
 from tkinter import ttk
 
@@ -5,6 +6,7 @@ from tkinter import ttk
 class GreetingGUI:
 
     def __init__(self, master):
+        self.text_manager = None
         self.master = master
         master.title("WritingBuddy")
 
@@ -20,8 +22,6 @@ class GreetingGUI:
         ttk.Button(mainframe, text="Go",
                    command=self.store_file_path).grid(column=3, row=1, sticky=W)
 
-        self.store_file_path()
-
         ttk.Label(mainframe, text="Can I get your file path?").grid(column=1, row=1, sticky=W)
 
         for child in mainframe.winfo_children():
@@ -31,7 +31,8 @@ class GreetingGUI:
         root.bind('<Return>', self.store_file_path)
 
     def store_file_path(self, *args) -> None:
-        print(self.path.get())
+        self.text_manager = TextManager(self.path.get())
+        print(self.text_manager.get_paragraphs())
 
 
 if __name__ == "__main__":
