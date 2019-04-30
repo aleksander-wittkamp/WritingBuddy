@@ -4,6 +4,7 @@ import re
 import spacy
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+from collections import Counter
 
 """
 You could look at sentence structure, too. What % have conjunctions, look at sentences with 1 comma, but no 
@@ -30,11 +31,19 @@ class TextManager:
         for token in self.doc:
             print(token)
 
-    def show_wordcloud(self):
+    def show_word_cloud(self):
         wordcloud = WordCloud().generate(self.text)
         plt.imshow(wordcloud, interpolation='bilinear')
         plt.axis('off')
         plt.show()
+
+    def get_common_words(self):
+        # words = [token.text for token in self.doc if not token.is_stop and not token.is_punct]
+        # word_freq = Counter(words)
+        # print(word_freq.most_common(5))
+        # common_words = word_freq.most_common(5)
+        # return ", ".join(common_words)
+        pass
 
     def get_paragraphs(self) -> List[str]:
         pass
@@ -48,10 +57,7 @@ class TextManager:
     def get_average_paragraph_size(self):
         pass
 
-    def get_common_words(self, n: int) -> List[Tuple[int, int]]:
-        pass
-
 
 if __name__ == "__main__":
     manager = TextManager("C:\\Users\\awitt\\Desktop\\Spider Ears.docx")
-    manager.show_wordcloud()
+    print(manager.get_common_words())
