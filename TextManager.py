@@ -29,6 +29,7 @@ class TextManager:
         self.parag_count = 0
         self.lemmatized_words = []
         self.vocab_count = 0
+        self.complex_sentences = []
         self.populate_attributes()
 
     def populate_attributes(self) -> None:
@@ -42,6 +43,7 @@ class TextManager:
             self.dialogue_word_count += diag_words
             self.sentence_count += self.get_sentence_count(doc)
             self.parag_count += self.get_parag_count(doc)
+            self.complex_sentences += self.get_complex_sentences(doc)
             if i == 0:
                 self.fog_index_reading_level = determine_reading_level(doc)
             self.lemmatized_words = self.lemmatized_words + [i.lemma_ for i in doc if i.text.isalnum()]
@@ -134,7 +136,13 @@ class TextManager:
 
     def get_sentence_count(self, doc) -> int:
         return len(list(doc.sents))
-
+    
+    def get_complex_sentences(self, doc) -> List:
+        """Returns a list of complex sentences.
+        Complexity is determined using a one-sentence version of the FOG index.
+        """
+        return [sentence.text for sentence in doc.sents if is_complex_sentence(sentence)]
+        
     def get_common_words(self, n=5):
         """Prints the five most common lemmatized words in the text."""
         interesting_words = [word for word in self.lemmatized_words if word not in STOPWORDS]
@@ -148,17 +156,11 @@ class TextManager:
     def get_dialogue_proportion(self):
         return self.dialogue_word_count / self.word_count
 
-    def get_paragraphs(self) -> List:
-        pass
-
-    def get_sentences(self) -> List:
-        pass
-
-    def get_average_sentence_length(self):
-        pass
-
-    def get_average_paragraph_size(self):
-        pass
+def is_complex_sentence(sentence):
+    """If the sentence contains >14 words or >2 subject nouns, it is considered complex."""
+    num_subj_nouns = sum([1 for token in sentence if token.dep_ == "nsubj"]
+    num_words = len([token.text for token in sentence])
+    return num_words > 14 or num_subj_nouns > 2
 
 def determine_reading_level(doc) -> int:
     """Determines the Fog index reading level for a spacy doc.

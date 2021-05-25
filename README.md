@@ -14,4 +14,6 @@ These include:
 
 - Create a wordcloud
 
-- Provide a breakdown of the piece's reading level, word count, vocabulary count, dialogue percentage, and most common words.
+- Provide a breakdown of the piece's reading level, word count, vocabulary count, dialogue percentage, most common words, and complex sentences.
+
+A sample file and sample breakdown are provided.
