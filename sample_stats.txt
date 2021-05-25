@@ -1,0 +1,5 @@
+Reading level: Sixth grade
+Word count: 129
+Dialogue proportion: 0.3178294573643411
+Vocabulary size: 68
+Common words and their frequency: [('I', 4), ('dialogue', 3), ('sentence', 3), ('simple', 2), ('line', 2)]

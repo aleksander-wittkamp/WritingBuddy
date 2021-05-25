@@ -1,0 +1,21 @@
+This is a text document.
+
+It is simple, so I can easily figure out its stats.
+
+"This is a line of dialogue."
+
+This is not.
+
+"This is a more complicated line of dialogue," I say, "because it spans a speech tag. That may be a problem for my program."
+
+Here is a simple sentence.
+
+Here, if you care to look, is what you might call, if you're so inclined, a complex sentence. It has many more commas than my other sentences. Those do not have as many commas as that one.
+
+"Here are some more examples of dialogue," I say. "They should cover all the possibilities."
+
+This... might be a problem. How will it handle things...? I don't know.
+
+And this....
+
+What does it think of it?
