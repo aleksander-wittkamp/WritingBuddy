@@ -19,3 +19,11 @@ These include:
 - Retrieve a list of the piece's complex sentences.
 
 A sample file, sample breakdown, and sample list of complex sentences are provided. Note that the breakdown and list of complex sentences are saved as text files in the working directory.
+
+### File Details
+
+Main.py is a simple setup file.
+
+BuddyGUI.py manages input and options windows.
+
+TextManager.py handles the text functions.
