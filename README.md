@@ -12,6 +12,6 @@ Running Main.py launches a document selection window. Provide a txt or docx file
 
 These include:
 
-- Creating a wordcloud
+- Create a wordcloud
 
-- Providing a statistical breakdown of the piece's reading level, word count, vocabulary count, dialogue percentage, and most common words.
+- Provide a breakdown of the piece's reading level, word count, vocabulary count, dialogue percentage, and most common words.
