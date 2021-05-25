@@ -76,11 +76,13 @@ class OptionPage(tk.Frame):
         ttk.Label(mainframe, text="What can I help you with?").grid(column=1, row=1, sticky=W)
         ttk.Button(mainframe, text="Make me a word cloud",
                    command=self.master.text_manager.generate_word_cloud).grid(column=1, row=2, sticky=W)
-        ttk.Button(mainframe, text="Give me a stats file",
+        ttk.Button(mainframe, text="Give me a breakdown",
                    command=self.master.text_manager.save_summary_stats).grid(column=1, row=3, sticky=W)
+        ttk.Button(mainframe, text="List the complex sentences",
+                   command=self.master.text_manager.save_complex_sentences).grid(column=1, row=4, sticky=W)
         ttk.Button(mainframe, text="Let me pick a different story",
                    command=self.switch_docs).\
-            grid(column=1, row=4, sticky=W)
+            grid(column=1, row=5, sticky=W)
 
         ttk.Label(mainframe, text=self.output).grid(column=1, row=5, sticky=W)
 

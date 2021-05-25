@@ -12,8 +12,7 @@ from math import floor
 from os import path
 
 """
-Programs like the Hemingway app do some analysis, like identifying reading level and adverbs. I'm familiar with the
-Hemingway one in particular, but wish it grouped qualifiers separate from other adverbs.
+Programs like the Hemingway app do some analysis, like identifying reading level and adverbs. This tool performs similar checks.
 """
 
 class TextManager:
@@ -62,23 +61,28 @@ class TextManager:
         return text.replace("\t", "")
         
     def save_summary_stats(self):
+        """Saves summary to text file."""
         with open(f"{self.get_filename()}_stats.txt", "w") as text_file:
             print(self.get_summary_stats(), file=text_file)
+            
+    def save_complex_sentences(self):
+        """Saves complex sentences to text file."""
+        with open(f"{self.get_filename()}_complex.txt", "w") as text_file:
+            print(self.get_complex_sentence_string(), file=text_file)
         
     def print_summary_stats(self):
+        """Prints summary to console."""
         print(self.get_summary_stats())
         
     def get_summary_stats(self):
+        """Returns a formatted string of summary."""
         return f"Reading level: {self.get_reading_level()}\nWord count: {self.word_count}\n" +\
             f"Dialogue proportion: {self.get_dialogue_proportion()}\n" +\
             f"Vocabulary size: {self.vocab_count}\nCommon words and their frequency: {self.get_common_words()}"
 
     def get_vocab_count(self) -> int:
+        """Returns a count of lemmatized unique words."""
         return len(set(self.lemmatized_words))
-
-    def print_all_words(self) -> None:
-        for token in self.doc:
-            print(token)
 
     def generate_word_cloud(self) -> None:
         """Opens a wordcloud in a new window."""
@@ -142,6 +146,9 @@ class TextManager:
         Complexity is determined using a one-sentence version of the FOG index.
         """
         return [sentence.text for sentence in doc.sents if is_complex_sentence(sentence)]
+    
+    def get_complex_sentence_string(self):
+        return "\n".join(self.complex_sentences)
         
     def get_common_words(self, n=5):
         """Prints the five most common lemmatized words in the text."""
@@ -158,7 +165,7 @@ class TextManager:
 
 def is_complex_sentence(sentence):
     """If the sentence contains >14 words or >2 subject nouns, it is considered complex."""
-    num_subj_nouns = sum([1 for token in sentence if token.dep_ == "nsubj"]
+    num_subj_nouns = sum([1 for token in sentence if token.dep_ == "nsubj"])
     num_words = len([token.text for token in sentence])
     return num_words > 14 or num_subj_nouns > 2
 

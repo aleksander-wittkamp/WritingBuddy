@@ -16,4 +16,6 @@ These include:
 
 - Provide a breakdown of the piece's reading level, word count, vocabulary count, dialogue percentage, most common words, and complex sentences.
 
-A sample file and sample breakdown are provided.
+- Retrieve a list of the piece's complex sentences.
+
+A sample file and sample breakdown are provided. Note that the breakdown and list of complex sentences are saved as text files in the working directory.
