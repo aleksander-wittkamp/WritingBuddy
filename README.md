@@ -1,2 +1,17 @@
 # WritingBuddy
-Gives simple stats about story composition.
+
+Provides simple functions related to story composition.
+
+### Uncommon Packages
+
+spacy, spacy_syllables, docx2txt, wordcloud
+
+### Usage
+
+Running Main.py launches a document selection window. Provide a txt or docx file and select among the available functions.
+
+These include:
+
+- Creating a wordcloud
+
+- Providing a statistical breakdown of the piece's reading level, word count, vocabulary count, dialogue percentage, and most common words.
