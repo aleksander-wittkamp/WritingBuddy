@@ -6,3 +6,17 @@ pride_and_prejudice.txt
 .ipynb_checkpoints/Text Functions-checkpoint.ipynb
 .ipynb_checkpoints/TextManager-checkpoint.py
 .ipynb_checkpoints/Untitled-checkpoint.ipynb
+*.xml
+.idea/WritingBuddy.iml
+venv/pyvenv.cfg
+venv/Scripts/activate
+venv/Scripts/activate.bat
+venv/Scripts/Activate.ps1
+venv/Scripts/deactivate.bat
+venv/Scripts/python.exe
+venv/Scripts/pythonw.exe
+__pycache__/BuddyGUIs.cpython-37.pyc
+__pycache__/TextManager.cpython-37.pyc
+novel_analysis.ipynb
+Text Functions.ipynb
+Untitled.ipynb
